@@ -1,3 +1,2 @@
-import {food} from './food.js';
-import {actions} from './actions.js';
+import * as Foods from './food.js';
 
