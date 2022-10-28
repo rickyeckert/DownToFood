@@ -89,15 +89,59 @@ foodSelection.push(randFoodLocation);
 return foodSelection;
 };
 
-//Initiate Selection
-getFoodLocation();
-
-
-
 //Function for Map on Selection
 function showMap(thing) {
     const map = document.querySelector('#map');
     map.innerHTML = thing.location
 };
 
-// showMap(food1);
+//Initiate Selection
+getFoodLocation();
+
+
+//Limit of Choices
+let giveUp = 10;
+
+//Buttons & Actions of Choices
+foodLocations.forEach(food=>{
+    const div = document.createElement('div');
+    const button = document.createElement('button');
+    const h3 = document.createElement('h3');
+    h3.innerHTML = food.name;
+    div.append(button);
+    div.append(h3);
+    document.body.append(div);
+    button.innerHTML = 'Choose';
+    div.style.display = 'flex';
+    button.style.backgroundColor = 'lightgrey'
+    button.style.marginRight = '4px';
+    button.addEventListener('click', ()=>{
+        giveUp--;
+        showMap(food);
+        const h1 = document.querySelector('#response')
+        document.querySelector('#response').innerHTML = food.response;
+        if (giveUp < 1) {
+            showMap(foodSelection[0]);
+            document.querySelector('#response').innerHTML = 'How.. About.. We eat here!';
+            h1.style.color = 'red';
+            h1.style.fontSize = '40px';
+        };
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// console.log(showMap(foodSelection[0]));
+
