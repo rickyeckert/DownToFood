@@ -101,6 +101,13 @@ getFoodLocation();
 
 //Limit of Choices
 let giveUp = 10;
+const box = document.createElement('div');
+document.body.append(box);
+box.style.margin = '5px';
+box.style.flexWrap = 'wrap';
+box.style.columns = '.5em 3'
+box.style.alignItems = 'space-between';
+box.style.justifyContent = "space-between";
 
 //Buttons & Actions of Choices
 foodLocations.forEach(food=>{
@@ -110,11 +117,13 @@ foodLocations.forEach(food=>{
     h3.innerHTML = food.name;
     div.append(button);
     div.append(h3);
-    document.body.append(div);
+    box.append(div);
     button.innerHTML = 'Choose';
-    div.style.display = 'flex';
+    div.style.display = 'inline-flex';
+    div.style.width = '100%';
     button.style.backgroundColor = 'lightgrey'
-    button.style.marginRight = '4px';
+    button.style.margin = '4px';
+    button.style.height = '3em';
     button.addEventListener('click', ()=>{
         giveUp--;
         showMap(food);
@@ -128,7 +137,6 @@ foodLocations.forEach(food=>{
         };
     });
 });
-
 
 
 
