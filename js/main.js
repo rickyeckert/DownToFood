@@ -141,7 +141,5 @@ foodLocations.forEach(food=>{
 
 
 
-
-
 // console.log(showMap(foodSelection[0]));
 
